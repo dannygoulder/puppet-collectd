@@ -82,8 +82,8 @@ describe 'collectd::plugin::snmp', type: :class do
             'type'     => 'if_octets',
             'table'    => true,
             'instance' => 'IF-MIB::ifName',
-            'values'   => ['IF-MIB::ifHCInOctets', 'IF-MIB::ifHCOutOctets'],
-          },
+            'values'   => ['IF-MIB::ifHCInOctets', 'IF-MIB::ifHCOutOctets']
+          }
         },
         hosts: {
           'router' => {
@@ -96,9 +96,9 @@ describe 'collectd::plugin::snmp', type: :class do
             'privacy_protocol'   => 'AES',
             'privacy_passphrase' => 'mekmitasdigoat',
             'collect'            => ['hc_octets'],
-            'interval'           => 30,
-          },
-        },
+            'interval'           => 30
+          }
+        }
       }
     end
 
