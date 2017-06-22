@@ -1,20 +1,20 @@
 # https://collectd.org/wiki/index.php/Plugin:SNMP
 define collectd::plugin::snmp::host (
-  Variant[String[1], Array[String[1], 1]]   $collect,
-  Enum['present', 'absent']                 $ensure             = 'present',
-  String[1]                                 $address            = $name,
-  Collectd::SNMP::Version                   $version            = '1',
-  Optional[Integer[0]]                      $interval           = undef,
+  $collect,
+  $ensure             = 'present',
+  $address            = $name,
+  $version            = '1',
+  $interval           = undef,
   # SNMPv1/2c
-  Optional[String[1]]                       $community          = 'public',
+  $community          = 'public',
   # SNMPv3
-  Optional[String[1]]                       $username           = undef,
-  Optional[Collectd::SNMP::SecurityLevel]   $security_level     = undef,
-  Optional[String[1]]                       $context            = undef,
-  Optional[Collectd::SNMP::AuthProtocol]    $auth_protocol      = undef,
-  Optional[String[1]]                       $auth_passphrase    = undef,
-  Optional[Collectd::SNMP::PrivacyProtocol] $privacy_protocol   = undef,
-  Optional[String[1]]                       $privacy_passphrase = undef,
+  $username           = undef,
+  $security_level     = undef,
+  $context            = undef,
+  $auth_protocol      = undef,
+  $auth_passphrase    = undef,
+  $privacy_protocol   = undef,
+  $privacy_passphrase = undef,
 ) {
 
   include ::collectd

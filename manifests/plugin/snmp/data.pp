@@ -1,20 +1,22 @@
 # https://collectd.org/wiki/index.php/Plugin:SNMP
 define collectd::plugin::snmp::data (
-  String                                            $instance,
-  String[1]                                         $type,
-  Variant[String[1], Array[String[1], 1]]           $values,
-  Enum['present', 'absent']                         $ensure          = 'present',
-  Optional[String[1]]                               $instance_prefix = undef,
-  Optional[Numeric]                                 $scale           = undef,
-  Optional[Numeric]                                 $shift           = undef,
-  Boolean                                           $table           = false,
-  Optional[Variant[String[1], Array[String[1], 1]]] $ignore          = undef,
-  Boolean                                           $invert_match    = false,
+  $instance,
+  $type,
+  $values,
+  $ensure          = 'present',
+  $instance_prefix = undef,
+  $scale           = undef,
+  $shift           = undef,
+  $table           = false,
+  $ignore          = undef,
+  $invert_match    = false,
 ) {
 
   include ::collectd
   include ::collectd::plugin::snmp
 
+  $table_bool = str2bool($table)
+  $invert_match_bool = str2bool($invert_match)
   $conf_dir   = $collectd::plugin_conf_dir
   $root_group = $collectd::root_group
 
